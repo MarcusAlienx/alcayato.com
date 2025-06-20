@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // Imported AnimatePresence
 import logo from './assets/logo_alcayato.png';
 import './App.css';
 
 import Home from './src/pages/Home';
 import BrandPage from './src/pages/BrandPage';
+import Nosotros from './src/pages/Nosotros'; // Import Nosotros component
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -17,7 +18,33 @@ function ScrollToTop() {
   return null;
 }
 
+// Page transition variants
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: "-100vw",
+    scale: 0.8
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+    scale: 1
+  },
+  out: {
+    opacity: 0,
+    x: "100vw",
+    scale: 1.2
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.5
+};
+
 function App() {
+  const location = useLocation(); // Added for AnimatePresence
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -89,7 +116,7 @@ function App() {
               <li><Link to="/#servicios" className="hover:text-blue-400 transition duration-300">Servicios</Link></li>
               <li><Link to="/#soluciones" className="hover:text-blue-400 transition duration-300">Soluciones</Link></li>
               <li><Link to="/#recursos" className="hover:text-blue-400 transition duration-300">Recursos</Link></li>
-              <li><Link to="/#nosotros" className="hover:text-blue-400 transition duration-300">Nosotros</Link></li>
+              <li><Link to="/nosotros" className="hover:text-blue-400 transition duration-300">Nosotros</Link></li>
               <li><Link to="/#contacto" className="hover:text-blue-400 transition duration-300">Contacto</Link></li>
             </ul>
             <div className="md:hidden">
@@ -104,10 +131,13 @@ function App() {
 
         {/* Main Content */}
         <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/marcas/:brand" element={<BrandPage />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/marcas/:brand" element={<BrandPage />} />
+              <Route path="/nosotros" element={<Nosotros />} />
+            </Routes>
+          </AnimatePresence>
         </main>
       </div>
     </Router>
