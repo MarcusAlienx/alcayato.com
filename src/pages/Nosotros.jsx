@@ -1,6 +1,7 @@
 // src/pages/Nosotros.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import logoAlcayato from '../../assets/logo_alcayato.png'; // Import the logo
 
 // Define pageVariants and pageTransition (can be copied from Home.jsx or App.jsx)
 const pageVariants = {
@@ -37,6 +38,9 @@ const Nosotros = () => {
       transition={pageTransition}
       className="container mx-auto p-4 pt-24 text-white" // pt-24 for content below fixed header
     >
+      <div className="flex justify-center mb-8">
+        <img src={logoAlcayato} alt="Grupo Alcayato" className="w-[450px]" />
+      </div>
       <h1 className="text-4xl font-bold mb-8 text-center text-blue-400">Sobre Nosotros</h1>
 
       <div className="bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-xl">
