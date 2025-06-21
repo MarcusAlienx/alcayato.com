@@ -97,7 +97,7 @@ function App() {
                 whileHover={{ rotate: 5 }}
                 src={logo} 
                 alt="Alcayato Logo" 
-                className="h-12" 
+                className="w-[450px]"
               />
               <span className="text-2xl font-bold text-white">Alcayato</span>
             </Link>
