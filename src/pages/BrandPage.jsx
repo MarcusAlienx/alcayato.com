@@ -305,7 +305,7 @@ const AnimatedLogo = ({ logo, name }) => {
 
 function ProductPage({ brand }) {
   // useParams is used by ProductPage to get brand from URL
-  const { brand } = useParams(); // Keep useParams
+  // const { brand } = useParams(); // Keep useParams - Removed this line
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
