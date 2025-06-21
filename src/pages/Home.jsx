@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-import heroTech1 from '../assets/hero_technology_1-DLzTOeXu.png';
-import heroTech2 from '../assets/hero_technology_2-CBFoFHRY.png'; // Import heroTech2
-import telefireLogoSvg from '../assets/telefire-logo.svg';
-import boseLogoSvg from '../assets/bose.svg';
-import extremeNetworksLogoSvg from '../assets/extreme-networks-vector-logo.svg';
-import panduitLogoSvg from '../assets/panduit.svg';
-import inncomLogoSvg from '../assets/Logo_INNCOM.svg';
+import heroTech1 from '../../assets/hero_technology_1-DLzTOeXu.png';
+import heroTech2 from '../../assets/hero_technology_2-CBFoFHRY.png'; // Import heroTech2
+import telefireLogoSvg from '../../assets/telefire-logo.svg';
+import boseLogoSvg from '../../assets/bose.svg';
+import extremeNetworksLogoSvg from '../../assets/extreme-networks-vector-logo.svg';
+import panduitLogoSvg from '../../assets/panduit.svg';
+import inncomLogoSvg from '../../assets/Logo_INNCOM.svg';
 
 // Page transition variants (defined locally)
 const pageVariants = {
