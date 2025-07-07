@@ -6,12 +6,30 @@ import { useQuote } from '../context/QuoteContext';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('inicio');
   const { getTotalItems } = useQuote();
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Determine active section based on scroll position
+      const sections = ['inicio', 'servicios', 'soluciones', 'marcas', 'recursos', 'nosotros', 'contacto'];
+      let currentSection = 'inicio';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -46,9 +64,9 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/logo_alcayato.png"
+              src="/assets/ALCAYATO_DEG_LOGO.svg"
               alt="Alcayato"
-              className="h-8 md:h-10 w-auto"
+              className="h-12 md:h-16 w-auto"
               onError={(e) => {
                 e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMUJBRTJGIi8+Cjx0ZXh0IHg9IjYwIiB5PSIyNSIgZm9udC1mYW1pbHk9Ik1vbnRzZXJyYXQiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BTENBWUFUTzwvdGV4dD4KPHN2Zz4=';
               }}
@@ -60,7 +78,11 @@ export default function Header() {
             <button
               onClick={() => scrollToSection('inicio')}
               className={`text-sm font-medium transition-colors ${
-                isScrolled
+                activeSection === 'inicio'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md'
+                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                  : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
               }`}
@@ -70,7 +92,11 @@ export default function Header() {
             <button
               onClick={() => scrollToSection('servicios')}
               className={`text-sm font-medium transition-colors ${
-                isScrolled
+                activeSection === 'servicios'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md'
+                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                  : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
               }`}
@@ -80,7 +106,11 @@ export default function Header() {
             <button
               onClick={() => scrollToSection('soluciones')}
               className={`text-sm font-medium transition-colors ${
-                isScrolled
+                activeSection === 'soluciones'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md'
+                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                  : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
               }`}
@@ -90,7 +120,11 @@ export default function Header() {
             <button
               onClick={() => scrollToSection('marcas')}
               className={`text-sm font-medium transition-colors ${
-                isScrolled
+                activeSection === 'marcas'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md'
+                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                  : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
               }`}
@@ -100,7 +134,11 @@ export default function Header() {
             <button
               onClick={() => scrollToSection('recursos')}
               className={`text-sm font-medium transition-colors ${
-                isScrolled
+                activeSection === 'recursos'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md'
+                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                  : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
               }`}
@@ -110,7 +148,11 @@ export default function Header() {
             <button
               onClick={() => scrollToSection('nosotros')}
               className={`text-sm font-medium transition-colors ${
-                isScrolled
+                activeSection === 'nosotros'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md'
+                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                  : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
               }`}
@@ -119,7 +161,13 @@ export default function Header() {
             </button>
             <button
               onClick={() => scrollToSection('contacto')}
-              className="btn-alcayato-primary text-sm"
+              className={`text-sm font-medium transition-colors ${
+                activeSection === 'contacto'
+                  ? isScrolled
+                    ? 'text-[#3E8DFF] font-semibold shadow-md btn-alcayato-primary'
+                    : 'text-[#3E8DFF] font-semibold shadow-md btn-alcayato-primary'
+                  : 'btn-alcayato-primary'
+              }`}
             >
               Contacto
             </button>
@@ -168,43 +216,57 @@ export default function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg shadow-lg mt-2">
               <button
                 onClick={() => scrollToSection('inicio')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'inicio' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Inicio
               </button>
               <button
                 onClick={() => scrollToSection('servicios')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'servicios' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Servicios
               </button>
               <button
                 onClick={() => scrollToSection('soluciones')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'soluciones' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Soluciones
               </button>
               <button
                 onClick={() => scrollToSection('marcas')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'marcas' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Marcas
               </button>
               <button
                 onClick={() => scrollToSection('recursos')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'recursos' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Recursos
               </button>
               <button
                 onClick={() => scrollToSection('nosotros')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'nosotros' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Nosotros
               </button>
               <button
                 onClick={() => scrollToSection('contacto')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-[#3E8DFF] hover:bg-gray-100 rounded-md"
+                className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                  activeSection === 'contacto' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Contacto
               </button>

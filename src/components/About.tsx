@@ -66,7 +66,7 @@ export default function About() {
           <div>
             <div className="flex items-center mb-6">
               <img
-                src="/logo_alcayato.png"
+                src="/assets/Alcayato_sq_logo.svg"
                 alt="Alcayato"
                 className="h-16 w-auto mr-4"
                 onError={(e) => {

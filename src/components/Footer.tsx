@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="col-span-1 lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
               <img
-                src="/logo_alcayato.png"
+                src="/assets/ALCAYATO_DEG_LOGO.svg"
                 alt="Alcayato"
                 className="h-12 w-auto filter brightness-0 invert"
                 onError={(e) => {

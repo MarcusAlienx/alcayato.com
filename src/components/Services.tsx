@@ -96,11 +96,7 @@ export default function Services() {
                     ))}
                   </ul>
 
-                  {/* CTA */}
-                  <button className="group-hover:bg-[#3E8DFF] group-hover:text-white text-[#3E8DFF] border border-[#3E8DFF] px-4 py-2 rounded-lg transition-all duration-300 flex items-center text-sm font-semibold">
-                    Más información
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  {/* CTA removed as per user request */}
                 </div>
               </div>
             );
@@ -116,9 +112,9 @@ export default function Services() {
             <p className="text-lg mb-6 opacity-90">
               Nuestro equipo de expertos está listo para diseñar la solución perfecta para su proyecto.
             </p>
-            <button className="bg-white text-[#1B1E2F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <a href="/#contacto" className="bg-white text-[#1B1E2F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
               Solicitar Consultoría
-            </button>
+            </a>
           </div>
         </div>
       </div>

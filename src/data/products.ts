@@ -20,7 +20,7 @@ export const brands: Brand[] = [
   {
     id: 'telefire',
     name: 'Telefire',
-    logo: '/logos/telefire-logo.png',
+    logo: '/assets/telefire-logo.svg',
     description: 'Sistemas avanzados de detección de incendios',
     color: '#FF4444',
     products: [
@@ -134,7 +134,7 @@ export const brands: Brand[] = [
   {
     id: 'bose',
     name: 'Bose Professional',
-    logo: '/logos/bose-logo.png',
+    logo: '/assets/Bose_pro.png',
     description: 'Soluciones de audio profesional de alta calidad',
     color: '#000000',
     products: [
@@ -248,7 +248,7 @@ export const brands: Brand[] = [
   {
     id: 'extreme',
     name: 'Extreme Networks',
-    logo: '/logos/extreme-logo.png',
+    logo: '/assets/ExtremeNetworks.svg',
     description: 'Soluciones de networking empresarial de alto rendimiento',
     color: '#7B2D8E',
     products: [
@@ -362,7 +362,7 @@ export const brands: Brand[] = [
   {
     id: 'panduit',
     name: 'Panduit',
-    logo: '/logos/panduit-logo.png',
+    logo: '/assets/Panduit.svg',
     description: 'Soluciones integrales de infraestructura de red y cableado estructurado',
     color: '#E31837',
     products: [
@@ -476,7 +476,7 @@ export const brands: Brand[] = [
   {
     id: 'inncom',
     name: 'Inncom',
-    logo: '/logos/inncom-logo.png',
+    logo: '/assets/Honeywell.svg',
     description: 'Sistemas inteligentes de automatización y gestión energética',
     color: '#0066CC',
     products: [
@@ -590,7 +590,7 @@ export const brands: Brand[] = [
   {
     id: 'honeywell-bms',
     name: 'Honeywell BMS',
-    logo: '/logos/honeywell-logo.png',
+    logo: '/assets/notifier.png',
     description: 'Sistemas avanzados de automatización y gestión de edificios',
     color: '#DC143C',
     products: [
@@ -704,7 +704,7 @@ export const brands: Brand[] = [
   {
     id: 'honeywell-security',
     name: 'Honeywell Security',
-    logo: '/logos/honeywell-security-logo.png',
+    logo: '/assets/honeywell-security-1.svg',
     description: 'Soluciones integrales de seguridad y videovigilancia',
     color: '#E31837',
     products: [
@@ -818,7 +818,7 @@ export const brands: Brand[] = [
   {
     id: 'huawei',
     name: 'Huawei',
-    logo: '/logos/huawei-logo.png',
+    logo: '/assets/huawei-logo.svg',
     description: 'Soluciones de networking y telecomunicaciones de vanguardia',
     color: '#FF0000',
     products: [

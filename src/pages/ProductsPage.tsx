@@ -55,6 +55,22 @@ export default function ProductsPage() {
             <Link
               to="/#marcas"
               className="inline-flex items-center text-white/80 hover:text-white transition-colors mb-6"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  const element = document.getElementById('marcas');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                } else {
+                  setTimeout(() => {
+                    const element = document.getElementById('marcas');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }
+              }}
             >
               <ArrowLeft className="mr-2 w-4 h-4" />
               Volver a marcas
@@ -62,7 +78,9 @@ export default function ProductsPage() {
             <img
               src={brand.logo}
               alt={brand.name}
-              className="h-16 mx-auto mb-6 filter brightness-0 invert"
+              className={`mx-auto mb-6 filter brightness-0 invert ${
+                ['bose', 'honeywell-security', 'huawei'].includes(brand.id) ? 'h-32' : 'h-16'
+              }`}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}

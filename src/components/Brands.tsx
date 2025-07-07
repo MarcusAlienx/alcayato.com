@@ -30,13 +30,9 @@ export default function Brands() {
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className="max-h-16 max-w-full object-contain filter group-hover:scale-110 transition-transform duration-300"
-                    onError={(e) => {
-                      // Fallback to colored rectangle with brand name
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
+                    className={`max-w-full object-contain filter group-hover:scale-110 transition-transform duration-300 ${
+                      ['bose', 'honeywell-security', 'huawei'].includes(brand.id) ? 'max-h-32' : 'max-h-16'
+                    }`}
                   />
                   <div
                     className="hidden w-full h-16 rounded-lg items-center justify-center text-white font-mont-bold text-lg"

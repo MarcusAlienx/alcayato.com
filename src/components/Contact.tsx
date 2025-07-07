@@ -3,18 +3,16 @@ import {
   Mail,
   Phone,
   MapPin,
-  Send,
   ShoppingCart,
   X,
   Plus,
-  Minus,
-  CheckCircle,
-  AlertCircle
+  Minus
 } from 'lucide-react';
 import { useQuote } from '../context/QuoteContext';
 
 export default function Contact() {
   const { items, updateQuantity, removeFromQuote, clearQuote } = useQuote();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,43 +21,47 @@ export default function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmissionStatus('idle');
+    setSubmitStatus(null);
 
     try {
-      const submitData = {
+      // Prepare the data including any quoted products
+      const quotedProducts = items.map(item => ({
+        name: item.product.name,
+        category: item.product.category,
+        brand: item.brandName,
+        quantity: item.quantity
+      }));
+
+      const payload = {
         ...formData,
-        quotedProducts: items.map(item => ({
-          productName: item.product.name,
-          brandName: item.brandName,
-          quantity: item.quantity,
-          description: item.product.description,
-          category: item.product.category
-        }))
+        quotedProducts
       };
 
-      const response = await fetch(import.meta.env.VITE_ZOHO_API_URL || '', {
+      // Send to backend (make sure your backend is running)
+      const response = await fetch('http://localhost:5000/api/zoho/submit-lead', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(submitData),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
-        setSubmissionStatus('success');
+        setSubmitStatus({
+          type: 'success',
+          message: '¡Formulario enviado con éxito! Nos pondremos en contacto contigo pronto.'
+        });
+        // Reset form
         setFormData({
           name: '',
           email: '',
@@ -67,13 +69,25 @@ export default function Contact() {
           company: '',
           message: ''
         });
-        clearQuote();
       } else {
-        setSubmissionStatus('error');
+        let errorData = {};
+        try {
+          errorData = await response.json();
+        } catch (err) {
+          console.error('Error parsing response:', err);
+        }
+        console.error('Backend error:', errorData);
+        setSubmitStatus({
+          type: 'error',
+          message: `Error al enviar el formulario: ${(errorData as any).error || 'Inténtalo de nuevo más tarde.'}`
+        });
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmissionStatus('error');
+      console.error('Network or other error submitting form:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Error de conexión al enviar el formulario. Asegúrate de que el servidor backend esté activo o inténtalo más tarde.'
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -112,8 +126,7 @@ export default function Contact() {
                   <Phone className="w-6 h-6 mr-4 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-mont-semibold mb-1">Teléfono</h4>
-                    <p className="opacity-90">+1 (555) 123-4567</p>
-                    <p className="opacity-90">+1 (555) 765-4321</p>
+                    <p className="opacity-90">(+52) 332696-4466</p>
                   </div>
                 </div>
 
@@ -121,8 +134,8 @@ export default function Contact() {
                   <MapPin className="w-6 h-6 mr-4 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-mont-semibold mb-1">Dirección</h4>
-                    <p className="opacity-90">Calle Principal 123</p>
-                    <p className="opacity-90">Ciudad, País 12345</p>
+                    <p className="opacity-90">Turquesa 3246</p>
+                    <p className="opacity-90">Guadalajara, Jalisco, 44550, México</p>
                   </div>
                 </div>
               </div>
@@ -203,122 +216,91 @@ export default function Contact() {
                 </div>
               )}
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+              {/* Contact Form */}
+              <div className="mt-8">
+                <h3 className="text-lg font-mont-bold text-[#1B1E2F] mb-6">Formulario de Contacto</h3>
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="md:col-span-1">
                     <label htmlFor="name" className="block text-sm font-mont-semibold text-gray-700 mb-2">
-                      Nombre Completo *
+                      Nombre Completo <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       id="name"
-                      name="name"
                       value={formData.name}
-                      onChange={handleInputChange}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent transition-colors"
-                      placeholder="Su nombre completo"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent"
                     />
                   </div>
-
-                  <div>
+                  <div className="md:col-span-1">
                     <label htmlFor="email" className="block text-sm font-mont-semibold text-gray-700 mb-2">
-                      Email *
+                      Email <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
                       id="email"
-                      name="email"
                       value={formData.email}
-                      onChange={handleInputChange}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent transition-colors"
-                      placeholder="su@email.com"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent"
                     />
                   </div>
-
-                  <div>
+                  <div className="md:col-span-1">
                     <label htmlFor="phone" className="block text-sm font-mont-semibold text-gray-700 mb-2">
-                      Teléfono *
+                      Teléfono <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
                       id="phone"
-                      name="phone"
                       value={formData.phone}
-                      onChange={handleInputChange}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent transition-colors"
-                      placeholder="+1 (555) 123-4567"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent"
                     />
                   </div>
-
-                  <div>
+                  <div className="md:col-span-1">
                     <label htmlFor="company" className="block text-sm font-mont-semibold text-gray-700 mb-2">
                       Empresa
                     </label>
                     <input
                       type="text"
                       id="company"
-                      name="company"
                       value={formData.company}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent transition-colors"
-                      placeholder="Nombre de su empresa"
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent"
                     />
                   </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-mont-semibold text-gray-700 mb-2">
-                    Mensaje
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent transition-colors resize-none"
-                    placeholder="Describa su proyecto o necesidades específicas..."
-                  />
-                </div>
-
-                {/* Status Messages */}
-                {submissionStatus === 'success' && (
-                  <div className="flex items-center p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
-                    <CheckCircle className="w-5 h-5 mr-2 flex-shrink-0" />
-                    <span>¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.</span>
+                  <div className="md:col-span-2">
+                    <label htmlFor="message" className="block text-sm font-mont-semibold text-gray-700 mb-2">
+                      Mensaje
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3E8DFF] focus:border-transparent"
+                    ></textarea>
+                  </div>
+                  <div className="md:col-span-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`w-full md:w-auto px-8 py-3 rounded-lg font-mont-semibold text-white transition-colors ${
+                        isSubmitting ? 'bg-[#2563EB]/70 cursor-not-allowed' : 'bg-[#2563EB] hover:bg-[#3E8DFF]'
+                      }`}
+                    >
+                      {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                    </button>
+                  </div>
+                </form>
+                {submitStatus && (
+                  <div className={`mt-4 p-4 rounded-lg ${submitStatus.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                    {submitStatus.message}
                   </div>
                 )}
-
-                {submissionStatus === 'error' && (
-                  <div className="flex items-center p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                    <AlertCircle className="w-5 h-5 mr-2 flex-shrink-0" />
-                    <span>Error al enviar el mensaje. Por favor, inténtelo de nuevo.</span>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#3E8DFF] text-white py-4 px-8 rounded-lg hover:bg-[#2563EB] transition-colors font-mont-semibold text-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <span>Enviando...</span>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      {items.length > 0 ? 'Enviar Cotización' : 'Enviar Mensaje'}
-                    </>
-                  )}
-                </button>
-
-                <p className="text-center text-sm text-gray-500">
-                  Al enviar este formulario, acepta que procesemos sus datos para responder a su consulta.
-                </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>
