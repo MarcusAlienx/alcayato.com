@@ -30,6 +30,7 @@ export default function Brands() {
                   <img
                     src={brand.logo}
                     alt={brand.name}
+                    loading="lazy"
                     className={`max-w-full object-contain filter group-hover:scale-110 transition-transform duration-300 ${
                       ['bose', 'honeywell-security', 'huawei'].includes(brand.id) ? 'max-h-32' : 'max-h-16'
                     }`}

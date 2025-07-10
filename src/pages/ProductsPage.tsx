@@ -52,14 +52,14 @@ export default function ProductsPage() {
     <div className="min-h-screen bg-gray-50">
       <Helmet>
         <title>{`Alcayato.com - Productos ${brand.name}`}</title>
-        <meta name="description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`}>
-        <meta property="og:title" content={`Alcayato.com - Productos ${brand.name}`}>
-        <meta property="og:description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`}>
-        <meta property="og:image" content={brandImageUrl}>
-        <meta property="og:url" content={`${baseUrl}/products/${brand.id}`}>
-        <meta property="twitter:title" content={`Alcayato.com - Productos ${brand.name}`}>
-        <meta property="twitter:description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`}>
-        <meta property="twitter:image" content={brandImageUrl}>
+        <meta name="description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`} />
+        <meta property="og:title" content={`Alcayato.com - Productos ${brand.name}`} />
+        <meta property="og:description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`} />
+        <meta property="og:image" content={brandImageUrl} />
+        <meta property="og:url" content={`${baseUrl}/products/${brand.id}`} />
+        <meta property="twitter:title" content={`Alcayato.com - Productos ${brand.name}`} />
+        <meta property="twitter:description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`} />
+        <meta property="twitter:image" content={brandImageUrl} />
       </Helmet>
       <Header />
 
@@ -93,6 +93,7 @@ export default function ProductsPage() {
             <img
               src={brand.logo}
               alt={brand.name}
+              loading="lazy"
               className={`mx-auto mb-6 filter brightness-0 invert ${
                 ['bose', 'honeywell-security', 'huawei'].includes(brand.id) ? 'h-32' : 'h-16'
               }`}
