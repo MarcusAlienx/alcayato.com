@@ -36,11 +36,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center text-gray-300">
                 <Phone className="w-5 h-5 mr-3 text-[#3C3473]" />
-                <span>+1 (555) 123-4567</span>
+                <span>(+52) 332696-4466</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <MapPin className="w-5 h-5 mr-3 text-[#3C3473]" />
-                <span>Ciudad, País</span>
+                <span>Guadalajara, México</span>
               </div>
             </div>
           </div>
