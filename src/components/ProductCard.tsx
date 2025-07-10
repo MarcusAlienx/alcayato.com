@@ -35,8 +35,8 @@ export default function ProductCard({ product, brandName }: ProductCardProps) {
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#3E8DFF]/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                <Star className="w-8 h-8 text-[#3E8DFF]" />
+              <div className="w-16 h-16 bg-[#6C60BF]/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                <Star className="w-8 h-8 text-[#6C60BF]" />
               </div>
               <p className="text-sm text-gray-500 font-medium">{product.name}</p>
             </div>
@@ -45,7 +45,7 @@ export default function ProductCard({ product, brandName }: ProductCardProps) {
 
         {/* Category Badge */}
         <div className="absolute top-3 left-3">
-          <span className="px-2 py-1 bg-[#3E8DFF] text-white text-xs font-semibold rounded-full">
+          <span className="px-2 py-1 bg-[#6C60BF] text-white text-xs font-semibold rounded-full">
             {product.category}
           </span>
         </div>
@@ -54,7 +54,7 @@ export default function ProductCard({ product, brandName }: ProductCardProps) {
       {/* Product Content */}
       <div className="p-6">
         {/* Product Name */}
-        <h3 className="text-xl font-mont-bold text-gray-800 mb-2 group-hover:text-[#3E8DFF] transition-colors">
+        <h3 className="text-xl font-mont-bold text-gray-800 mb-2 group-hover:text-[#6C60BF] transition-colors">
           {product.name}
         </h3>
 
@@ -69,7 +69,7 @@ export default function ProductCard({ product, brandName }: ProductCardProps) {
           <ul className="space-y-1">
             {product.features.slice(0, 3).map((feature, index) => (
               <li key={index} className="text-sm text-gray-600 flex items-start">
-                <span className="w-1.5 h-1.5 bg-[#3E8DFF] rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-[#6C60BF] rounded-full mt-2 mr-2 flex-shrink-0"></span>
                 <span>{feature}</span>
               </li>
             ))}
@@ -88,7 +88,7 @@ export default function ProductCard({ product, brandName }: ProductCardProps) {
           className={`w-full px-4 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center ${
             isAdded
               ? 'bg-green-500 text-white'
-              : 'bg-[#3E8DFF] text-white hover:bg-[#2563EB] hover:shadow-lg hover:transform hover:scale-105'
+              : 'bg-[#6C60BF] text-white hover:bg-[#6C60BF] hover:shadow-lg hover:transform hover:scale-105'
           }`}
         >
           {isAdded ? (

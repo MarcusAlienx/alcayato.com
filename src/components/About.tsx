@@ -52,7 +52,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-mont-heavy text-[#1B1E2F] mb-6">
+          <h2 className="text-4xl md:text-5xl font-mont-heavy text-[#262626] mb-6">
             Nosotros
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -74,7 +74,7 @@ export default function About() {
                 }}
               />
               <div>
-                <h3 className="text-2xl font-mont-bold text-[#1B1E2F]">Alcayato</h3>
+                <h3 className="text-2xl font-mont-bold text-[#262626]">Alcayato</h3>
                 <p className="text-gray-600">Conectando el futuro digital</p>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function About() {
 
           <div className="grid grid-cols-2 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-gradient-to-br from-[#3E8DFF] to-[#1B1E2F] rounded-xl text-white">
+              <div key={index} className="text-center p-6 bg-gradient-to-br from-[#3C3473] to-[#262626] rounded-xl text-white">
                 <div className="text-3xl font-mont-heavy mb-2">{stat.number}</div>
                 <div className="text-sm opacity-90">{stat.label}</div>
               </div>
@@ -107,10 +107,10 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {/* Mission */}
           <div className="bg-gray-50 rounded-xl p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#3E8DFF] to-[#1B1E2F] rounded-xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#3C3473] to-[#262626] rounded-xl flex items-center justify-center mx-auto mb-6">
               <Target className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4">Misión</h3>
+            <h3 className="text-xl font-mont-bold text-[#262626] mb-4">Misión</h3>
             <p className="text-gray-600 leading-relaxed">
               Facilitar la transformación digital de las empresas a través de soluciones
               tecnológicas innovadoras y un acompañamiento integral que asegure el éxito
@@ -120,10 +120,10 @@ export default function About() {
 
           {/* Vision */}
           <div className="bg-gray-50 rounded-xl p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#3E8DFF] to-[#1B1E2F] rounded-xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#3C3473] to-[#262626] rounded-xl flex items-center justify-center mx-auto mb-6">
               <Eye className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4">Visión</h3>
+            <h3 className="text-xl font-mont-bold text-[#262626] mb-4">Visión</h3>
             <p className="text-gray-600 leading-relaxed">
               Ser el referente latinoamericano en soluciones tecnológicas integrales,
               reconocidos por nuestra excelencia técnica, innovación constante y
@@ -133,10 +133,10 @@ export default function About() {
 
           {/* Values Preview */}
           <div className="bg-gray-50 rounded-xl p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#3E8DFF] to-[#1B1E2F] rounded-xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#3C3473] to-[#262626] rounded-xl flex items-center justify-center mx-auto mb-6">
               <Heart className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4">Valores</h3>
+            <h3 className="text-xl font-mont-bold text-[#262626] mb-4">Valores</h3>
             <p className="text-gray-600 leading-relaxed">
               Nuestros valores fundamentales guían cada decisión y acción:
               precisión técnica, confianza mutua y tecnología con propósito real.
@@ -146,7 +146,7 @@ export default function About() {
 
         {/* Values Detail */}
         <div className="mb-20">
-          <h3 className="text-3xl font-mont-bold text-[#1B1E2F] text-center mb-12">
+          <h3 className="text-3xl font-mont-bold text-[#262626] text-center mb-12">
             Nuestros Valores
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -157,7 +157,7 @@ export default function About() {
                   <div className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className="w-10 h-10 text-white" />
                   </div>
-                  <h4 className="text-xl font-mont-bold text-[#1B1E2F] mb-4">{value.title}</h4>
+                  <h4 className="text-xl font-mont-bold text-[#262626] mb-4">{value.title}</h4>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               );
@@ -169,7 +169,7 @@ export default function About() {
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-mont-bold text-[#1B1E2F] mb-6">
+              <h3 className="text-3xl font-mont-bold text-[#262626] mb-6">
                 Nuestros Logros
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -180,7 +180,7 @@ export default function About() {
               <ul className="space-y-4">
                 {achievements.map((achievement, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-[#3E8DFF] mr-3 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#3C3473] mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{achievement}</span>
                   </li>
                 ))}
@@ -190,8 +190,8 @@ export default function About() {
             <div className="flex flex-col space-y-6">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center mb-4">
-                  <Users className="w-8 h-8 text-[#3E8DFF] mr-3" />
-                  <h4 className="text-lg font-mont-bold text-[#1B1E2F]">Equipo Experto</h4>
+                  <Users className="w-8 h-8 text-[#3C3473] mr-3" />
+                  <h4 className="text-lg font-mont-bold text-[#262626]">Equipo Experto</h4>
                 </div>
                 <p className="text-gray-600">
                   Contamos con un equipo de profesionales altamente capacitados
@@ -201,19 +201,24 @@ export default function About() {
 
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center mb-4">
-                  <Globe className="w-8 h-8 text-[#3E8DFF] mr-3" />
-                  <h4 className="text-lg font-mont-bold text-[#1B1E2F]">Presencia Regional</h4>
+                  <Globe className="w-8 h-8 text-[#3C3473] mr-3" />
+                  <h4 className="text-lg font-mont-bold text-[#262626]">Presencia Regional</h4>
                 </div>
                 <p className="text-gray-600">
-                  Operamos en múltiples países de Latinoamérica, brindando
+                  Operamos en múltiples ciudades del país, brindando
                   soporte local con estándares internacionales de calidad.
                 </p>
               </div>
 
-              <button className="bg-[#3E8DFF] text-white px-8 py-3 rounded-lg hover:bg-[#2563EB] transition-colors font-semibold flex items-center justify-center">
+              <a
+                href="https://grupotse.mx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-3 bg-[#3C3473] text-white rounded-lg font-semibold hover:bg-[#6C60BF] transition-colors flex items-center justify-center"
+              >
                 Conocer Más
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

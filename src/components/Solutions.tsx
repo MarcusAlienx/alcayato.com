@@ -92,7 +92,7 @@ export default function Solutions() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4 group-hover:text-[#3E8DFF] transition-colors">
+                  <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4 group-hover:text-[#1B1E2F] transition-colors">
                     {solution.title}
                   </h3>
 
@@ -107,7 +107,7 @@ export default function Solutions() {
                     <ul className="space-y-2">
                       {solution.applications.map((app, appIndex) => (
                         <li key={appIndex} className="flex items-center text-sm text-gray-700">
-                          <CheckCircle className="w-4 h-4 text-[#3E8DFF] mr-2 flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-[#1B1E2F] mr-2 flex-shrink-0" />
                           <span>{app}</span>
                         </li>
                       ))}
@@ -130,7 +130,7 @@ export default function Solutions() {
                   </div>
 
                   {/* CTA */}
-                  <button className="w-full bg-[#3E8DFF] text-white px-4 py-3 rounded-lg hover:bg-[#2563EB] transition-all duration-300 flex items-center justify-center font-semibold group-hover:shadow-lg">
+                  <button className="w-full bg-[#6C60BF] text-white px-4 py-3 rounded-lg hover:bg-[#6C60BF] transition-all duration-300 flex items-center justify-center font-semibold group-hover:shadow-lg">
                     Ver Productos
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -151,10 +151,10 @@ export default function Solutions() {
               una solución a medida que integre múltiples tecnologías.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#3E8DFF] text-white px-8 py-3 rounded-lg hover:bg-[#2563EB] transition-colors font-semibold">
+              <button className="bg-[#6C60BF] text-white px-8 py-3 rounded-lg hover:bg-[#6C60BF] transition-colors font-semibold">
                 Consultar Proyecto
               </button>
-              <button className="border border-[#3E8DFF] text-[#3E8DFF] px-8 py-3 rounded-lg hover:bg-[#3E8DFF] hover:text-white transition-colors font-semibold">
+              <button className="border border-[#6C60BF] text-[#1B1E2F] px-8 py-3 rounded-lg hover:bg-[#6C60BF] hover:text-white transition-colors font-semibold">
                 Ver Casos de Éxito
               </button>
             </div>

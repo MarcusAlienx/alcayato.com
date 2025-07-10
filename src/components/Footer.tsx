@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#1B1E2F] text-white">
+    <footer className="bg-[#262626] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -31,15 +31,15 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-gray-300">
-                <Mail className="w-5 h-5 mr-3 text-[#3E8DFF]" />
+                <Mail className="w-5 h-5 mr-3 text-[#3C3473]" />
                 <span>contacto@alcayato.com</span>
               </div>
               <div className="flex items-center text-gray-300">
-                <Phone className="w-5 h-5 mr-3 text-[#3E8DFF]" />
+                <Phone className="w-5 h-5 mr-3 text-[#3C3473]" />
                 <span>+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center text-gray-300">
-                <MapPin className="w-5 h-5 mr-3 text-[#3E8DFF]" />
+                <MapPin className="w-5 h-5 mr-3 text-[#3C3473]" />
                 <span>Ciudad, País</span>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('inicio')}
-                  className="text-gray-300 hover:text-[#3E8DFF] transition-colors"
+                  className="text-gray-300 hover:text-[#3C3473] transition-colors"
                 >
                   Inicio
                 </button>
@@ -60,7 +60,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('servicios')}
-                  className="text-gray-300 hover:text-[#3E8DFF] transition-colors"
+                  className="text-gray-300 hover:text-[#3C3473] transition-colors"
                 >
                   Servicios
                 </button>
@@ -68,7 +68,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('soluciones')}
-                  className="text-gray-300 hover:text-[#3E8DFF] transition-colors"
+                  className="text-gray-300 hover:text-[#3C3473] transition-colors"
                 >
                   Soluciones
                 </button>
@@ -76,7 +76,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('marcas')}
-                  className="text-gray-300 hover:text-[#3E8DFF] transition-colors"
+                  className="text-gray-300 hover:text-[#3C3473] transition-colors"
                 >
                   Marcas
                 </button>
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('nosotros')}
-                  className="text-gray-300 hover:text-[#3E8DFF] transition-colors"
+                  className="text-gray-300 hover:text-[#3C3473] transition-colors"
                 >
                   Nosotros
                 </button>
@@ -112,21 +112,21 @@ export default function Footer() {
             <div className="flex space-x-6 mb-4 md:mb-0">
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#3E8DFF] transition-colors"
+                className="text-gray-400 hover:text-[#3C3473] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-6 h-6" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#3E8DFF] transition-colors"
+                className="text-gray-400 hover:text-[#3C3473] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-6 h-6" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#3E8DFF] transition-colors"
+                className="text-gray-400 hover:text-[#3C3473] transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-6 h-6" />

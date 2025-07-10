@@ -72,12 +72,12 @@ export default function Services() {
               >
                 <div className="p-8">
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#3E8DFF] to-[#1B1E2F] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#3C3473] to-[#262626] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4 group-hover:text-[#3E8DFF] transition-colors">
+                  <h3 className="text-xl font-mont-bold text-[#1B1E2F] mb-4 group-hover:text-[#6C60BF] transition-colors">
                     {service.title}
                   </h3>
 
@@ -90,7 +90,7 @@ export default function Services() {
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-[#3E8DFF] mr-2 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-[#6C60BF] mr-2 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -105,7 +105,7 @@ export default function Services() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#1B1E2F] to-[#3E8DFF] rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-[#262626] to-[#3C3473] rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-mont-bold mb-4">
               ¿Necesita una solución personalizada?
             </h3>

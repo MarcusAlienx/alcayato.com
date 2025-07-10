@@ -80,8 +80,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'inicio'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md'
-                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md'
+                    : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
@@ -94,8 +94,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'servicios'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md'
-                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md'
+                    : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
@@ -108,8 +108,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'soluciones'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md'
-                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md'
+                    : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
@@ -122,8 +122,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'marcas'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md'
-                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md'
+                    : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
@@ -136,8 +136,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'recursos'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md'
-                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md'
+                    : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
@@ -150,8 +150,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'nosotros'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md'
-                    : 'text-[#3E8DFF] font-semibold shadow-md'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md'
+                    : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
                   ? 'text-gray-700 hover:text-[#3E8DFF]'
                   : 'text-white hover:text-[#3E8DFF]'
@@ -164,8 +164,8 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 activeSection === 'contacto'
                   ? isScrolled
-                    ? 'text-[#3E8DFF] font-semibold shadow-md btn-alcayato-primary'
-                    : 'text-[#3E8DFF] font-semibold shadow-md btn-alcayato-primary'
+                    ? 'text-[#1B1E2F] font-semibold shadow-md btn-alcayato-primary'
+                    : 'text-[#1B1E2F] font-semibold shadow-md btn-alcayato-primary'
                   : 'btn-alcayato-primary'
               }`}
             >
@@ -217,7 +217,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('inicio')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'inicio' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'inicio' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Inicio
@@ -225,7 +225,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('servicios')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'servicios' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'servicios' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Servicios
@@ -233,7 +233,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('soluciones')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'soluciones' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'soluciones' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Soluciones
@@ -241,7 +241,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('marcas')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'marcas' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'marcas' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Marcas
@@ -249,7 +249,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('recursos')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'recursos' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'recursos' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Recursos
@@ -257,7 +257,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('nosotros')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'nosotros' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'nosotros' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Nosotros
@@ -265,7 +265,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection('contacto')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                  activeSection === 'contacto' ? 'text-[#3E8DFF] font-semibold' : 'text-gray-700'
+                  activeSection === 'contacto' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
                 } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
               >
                 Contacto

@@ -100,13 +100,13 @@ export default function Resources() {
                     <div className={`w-12 h-12 bg-gradient-to-br ${resource.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <span className="px-2 py-1 bg-[#3E8DFF] text-white text-xs font-semibold rounded-full">
+                    <span className="px-2 py-1 bg-[#6C60BF] text-white text-xs font-semibold rounded-full">
                       {resource.badge}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-mont-bold text-[#1B1E2F] mb-3 group-hover:text-[#3E8DFF] transition-colors">
+                  <h3 className="text-lg font-mont-bold text-[#1B1E2F] mb-3 group-hover:text-[#6C60BF] transition-colors">
                     {resource.title}
                   </h3>
 
@@ -119,14 +119,14 @@ export default function Resources() {
                   <ul className="space-y-1 mb-4">
                     {resource.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="text-sm text-gray-600 flex items-start">
-                        <Star className="w-3 h-3 text-[#3E8DFF] mr-2 mt-0.5 flex-shrink-0" />
+                        <Star className="w-3 h-3 text-[#1B1E2F] mr-2 mt-0.5 flex-shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* CTA */}
-                  <button className="w-full bg-gray-100 hover:bg-[#3E8DFF] hover:text-white text-gray-700 px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center text-sm font-semibold">
+                  <button className="w-full bg-gray-100 hover:bg-[#6C60BF] hover:text-white text-gray-700 px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center text-sm font-semibold">
                     Explorar
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -146,9 +146,9 @@ export default function Resources() {
             {featuredResources.map((resource, index) => (
               <div
                 key={index}
-                className="border border-gray-200 rounded-lg p-6 hover:border-[#3E8DFF] hover:shadow-md transition-all duration-300 group"
+                className="border border-gray-200 rounded-lg p-6 hover:border-[#6C60BF] hover:shadow-md transition-all duration-300 group"
               >
-                <h4 className="font-mont-semibold text-[#1B1E2F] mb-2 group-hover:text-[#3E8DFF] transition-colors">
+                <h4 className="font-mont-semibold text-[#1B1E2F] mb-2 group-hover:text-[#6C60BF] transition-colors">
                   {resource.title}
                 </h4>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -170,7 +170,7 @@ export default function Resources() {
                   </span>
                 </div>
 
-                <button className="w-full bg-[#3E8DFF] text-white px-4 py-2 rounded-lg hover:bg-[#2563EB] transition-colors text-sm font-semibold flex items-center justify-center">
+                <button className="w-full bg-[#6C60BF] text-white px-4 py-2 rounded-lg hover:bg-[#6C60BF] transition-colors text-sm font-semibold flex items-center justify-center">
                   <Download className="w-4 h-4 mr-2" />
                   Descargar
                 </button>
@@ -181,7 +181,7 @@ export default function Resources() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#1B1E2F] to-[#3E8DFF] rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-[#262626] to-[#3C3473] rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-mont-bold mb-4">
               ¿Necesita contenido específico?
             </h3>
@@ -190,13 +190,13 @@ export default function Resources() {
               para sus proyectos específicos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-[#1B1E2F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
+              <a href="/#contacto" className="bg-white text-[#1B1E2F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Solicitar Documentación
-              </button>
-              <button className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1B1E2F] transition-colors">
+              </a>
+              <a href="/#contacto" className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1B1E2F] transition-colors">
                 Suscribirse a Newsletter
-              </button>
+              </a>
             </div>
           </div>
         </div>
