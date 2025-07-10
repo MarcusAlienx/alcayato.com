@@ -8,8 +8,20 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { brands } from '../data/products';
 
 export default function Solutions() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Create a map for quick lookup of brand names to IDs
+  const brandNameToIdMap = new Map(brands.map(brand => [brand.name, brand.id]));
+
   const solutions = [
     {
       icon: Flame,
@@ -118,19 +130,30 @@ export default function Solutions() {
                   <div className="mb-6">
                     <h4 className="text-sm font-mont-semibold text-gray-800 mb-2">Marcas disponibles:</h4>
                     <div className="flex flex-wrap gap-2">
-                      {solution.brands.map((brand, brandIndex) => (
-                        <span
-                          key={brandIndex}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-                        >
-                          {brand}
-                        </span>
-                      ))}
+                      {solution.brands.map((brand, brandIndex) => {
+                        const brandId = brandNameToIdMap.get(brand);
+                        return brandId ? (
+                          <Link
+                            key={brandIndex}
+                            to={`/products/${brandId}`}
+                            className="px-3 py-1 bg-gray-100 text-[#5c51a6] font-bold text-xs rounded-full hover:bg-gray-200 transition-colors"
+                          >
+                            {brand}
+                          </Link>
+                        ) : (
+                          <span
+                            key={brandIndex}
+                            className="px-3 py-1 bg-gray-100 text-[#5c51a6] font-bold text-xs rounded-full"
+                          >
+                            {brand}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
 
                   {/* CTA */}
-                  <button className="w-full bg-[#6C60BF] text-white px-4 py-3 rounded-lg hover:bg-[#6C60BF] transition-all duration-300 flex items-center justify-center font-semibold group-hover:shadow-lg">
+                  <button onClick={() => scrollToSection('marcas')} className="w-full bg-[#6C60BF] text-white px-4 py-3 rounded-lg hover:bg-[#6C60BF] transition-all duration-300 flex items-center justify-center font-semibold group-hover:shadow-lg">
                     Ver Productos
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>

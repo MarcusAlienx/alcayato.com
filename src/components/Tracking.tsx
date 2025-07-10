@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 
 // Define the Zoho SalesIQ object structure on the window object for TypeScript
@@ -6,54 +5,52 @@ declare global {
   interface Window {
     $zoho: {
       salesiq: {
-        widgetcode: string;
-        values: object;
         ready: () => void;
         floatbutton?: {
           visible: (state: 'show' | 'hide') => void;
         };
+        chat?: {
+          open: () => void;
+        };
       };
     };
+    openSalesIQChat: () => void; // Declare the global function
   }
 }
 
 const Tracking = () => {
   useEffect(() => {
-    const widgetCode = import.meta.env.VITE_ZOHO_WIDGET_CODE;
-
-    if (!widgetCode) {
-      console.error('Zoho SalesIQ Widget Code not found in environment variables.');
-      return;
-    }
-
     // Prevent script from running twice in React's Strict Mode (in development)
     if (document.getElementById('zsiqscript')) {
       return;
     }
 
-    // Set configuration directly on the window object
-    window.$zoho = {
-      salesiq: {
-        widgetcode: widgetCode,
-        values: {},
-        ready: function () {
-          // This function is called once the Zoho script is loaded and ready.
-          // We ensure the float button is hidden.
-          if (window.$zoho.salesiq.floatbutton) {
-            window.$zoho.salesiq.floatbutton.visible('hide');
-            console.log('Zoho SalesIQ ready and float button hidden.');
-          }
-        },
-      },
+    // Create the Zoho SalesIQ object
+    window.$zoho = window.$zoho || {};
+    window.$zoho.salesiq = window.$zoho.salesiq || {
+      ready: function () {},
+    };
+
+    // Define the global function to open SalesIQ chat
+    window.openSalesIQChat = () => {
+      if (window.$zoho && window.$zoho.salesiq) {
+        // Prefer opening the chat directly if available, otherwise show the float button
+        if (window.$zoho.salesiq.chat && window.$zoho.salesiq.chat.open) {
+          window.$zoho.salesiq.chat.open();
+        } else if (window.$zoho.salesiq.floatbutton) {
+          window.$zoho.salesiq.floatbutton.visible('show');
+        }
+      } else {
+        console.warn('Zoho SalesIQ not ready yet. Cannot open chat.');
+      }
     };
 
     // Create and append the Zoho script tag
     const script = document.createElement('script');
-    script.type = 'text/javascript';
     script.id = 'zsiqscript';
     script.defer = true;
-    script.src = 'https://salesiq.zoho.com/widget';
-
+    script.src = 'https://salesiq.zoho.com/widget?wc=siq4c545201570e02a71637114ea4feb7d3363e35b42f36ae5578c37ea62367cfe4';
+    
     document.head.appendChild(script);
 
     // Cleanup function to remove the script when the component unmounts

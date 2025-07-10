@@ -102,7 +102,7 @@ body {
 
 /* Botones personalizados */
 .btn-alcayato-primary {
-  background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-navy) 100%);
+  background: linear-gradient(135deg, #5c51a6 0%, var(--color-navy) 100%);
   color: white;
   border: none;
   padding: 12px 24px;

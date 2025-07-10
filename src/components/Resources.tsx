@@ -190,10 +190,14 @@ export default function Resources() {
               para sus proyectos específicos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/#contacto" className="bg-white text-[#1B1E2F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
+              <button onClick={() => {
+                if (window.openSalesIQChat) {
+                  window.openSalesIQChat();
+                }
+              }} className="bg-white text-[#1B1E2F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Solicitar Documentación
-              </a>
+              </button>
               <a href="/#contacto" className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1B1E2F] transition-colors">
                 Suscribirse a Newsletter
               </a>

@@ -36,6 +36,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location.hash]);
+
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
       window.location.href = `/#${sectionId}`;
@@ -83,8 +93,8 @@ export default function Header() {
                     ? 'text-[#1B1E2F] font-semibold shadow-md'
                     : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF]'
-                  : 'text-white hover:text-[#3E8DFF]'
+                  ? 'text-gray-700 hover:text-[#6C60BF]'
+                  : 'text-white hover:text-[#6C60BF]'
               }`}
             >
               Inicio
@@ -97,8 +107,8 @@ export default function Header() {
                     ? 'text-[#1B1E2F] font-semibold shadow-md'
                     : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF]'
-                  : 'text-white hover:text-[#3E8DFF]'
+                  ? 'text-gray-700 hover:text-[#6C60BF]'
+                  : 'text-white hover:text-[#6C60BF]'
               }`}
             >
               Servicios
@@ -111,8 +121,8 @@ export default function Header() {
                     ? 'text-[#1B1E2F] font-semibold shadow-md'
                     : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF]'
-                  : 'text-white hover:text-[#3E8DFF]'
+                  ? 'text-gray-700 hover:text-[#6C60BF]'
+                  : 'text-white hover:text-[#6C60BF]'
               }`}
             >
               Soluciones
@@ -125,8 +135,8 @@ export default function Header() {
                     ? 'text-[#1B1E2F] font-semibold shadow-md'
                     : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF]'
-                  : 'text-white hover:text-[#3E8DFF]'
+                  ? 'text-gray-700 hover:text-[#6C60BF]'
+                  : 'text-white hover:text-[#6C60BF]'
               }`}
             >
               Marcas
@@ -139,8 +149,8 @@ export default function Header() {
                     ? 'text-[#1B1E2F] font-semibold shadow-md'
                     : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF]'
-                  : 'text-white hover:text-[#3E8DFF]'
+                  ? 'text-gray-700 hover:text-[#6C60BF]'
+                  : 'text-white hover:text-[#6C60BF]'
               }`}
             >
               Recursos
@@ -153,8 +163,8 @@ export default function Header() {
                     ? 'text-[#1B1E2F] font-semibold shadow-md'
                     : 'text-[#1B1E2F] font-semibold shadow-md'
                   : isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF]'
-                  : 'text-white hover:text-[#3E8DFF]'
+                  ? 'text-gray-700 hover:text-[#6C60BF]'
+                  : 'text-white hover:text-[#6C60BF]'
               }`}
             >
               Nosotros
@@ -180,8 +190,8 @@ export default function Header() {
               onClick={() => scrollToSection('contacto')}
               className={`relative p-2 rounded-lg transition-colors ${
                 isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100'
-                  : 'text-white hover:text-[#3E8DFF] hover:bg-white/10'
+                  ? 'text-gray-700 hover:text-[#6C60BF] hover:bg-gray-100'
+                  : 'text-white hover:text-[#6C60BF] hover:bg-white/10'
               }`}
             >
               <ShoppingCart className="w-5 h-5" />
@@ -197,8 +207,8 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`md:hidden p-2 rounded-lg transition-colors ${
                 isScrolled
-                  ? 'text-gray-700 hover:text-[#3E8DFF] hover:bg-gray-100'
-                  : 'text-white hover:text-[#3E8DFF] hover:bg-white/10'
+                  ? 'text-gray-700 hover:text-[#6C60BF] hover:bg-gray-100'
+                  : 'text-white hover:text-[#6C60BF] hover:bg-white/10'
               }`}
             >
               {isMenuOpen ? (
@@ -218,7 +228,7 @@ export default function Header() {
                 onClick={() => scrollToSection('inicio')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'inicio' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Inicio
               </button>
@@ -226,7 +236,7 @@ export default function Header() {
                 onClick={() => scrollToSection('servicios')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'servicios' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Servicios
               </button>
@@ -234,7 +244,7 @@ export default function Header() {
                 onClick={() => scrollToSection('soluciones')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'soluciones' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Soluciones
               </button>
@@ -242,7 +252,7 @@ export default function Header() {
                 onClick={() => scrollToSection('marcas')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'marcas' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Marcas
               </button>
@@ -250,7 +260,7 @@ export default function Header() {
                 onClick={() => scrollToSection('recursos')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'recursos' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Recursos
               </button>
@@ -258,7 +268,7 @@ export default function Header() {
                 onClick={() => scrollToSection('nosotros')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'nosotros' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Nosotros
               </button>
@@ -266,7 +276,7 @@ export default function Header() {
                 onClick={() => scrollToSection('contacto')}
                 className={`block w-full text-left px-3 py-2 text-base font-medium ${
                   activeSection === 'contacto' ? 'text-[#1B1E2F] font-semibold' : 'text-gray-700'
-                } hover:text-[#3E8DFF] hover:bg-gray-100 rounded-md`}
+                } hover:text-[#6C60BF] hover:bg-gray-100 rounded-md`}
               >
                 Contacto
               </button>

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import { getBrandById } from '../data/products';
+import { Helmet } from 'react-helmet-async';
 
 export default function ProductsPage() {
   const { brandId } = useParams<{ brandId: string }>();
@@ -44,8 +45,22 @@ export default function ProductsPage() {
     );
   }
 
+  const baseUrl = "https://www.alcayato.com"; // Replace with your actual base URL
+  const brandImageUrl = `${baseUrl}${brand.logo}`;
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>{`Alcayato.com - Productos ${brand.name}`}</title>
+        <meta name="description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`}>
+        <meta property="og:title" content={`Alcayato.com - Productos ${brand.name}`}>
+        <meta property="og:description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`}>
+        <meta property="og:image" content={brandImageUrl}>
+        <meta property="og:url" content={`${baseUrl}/products/${brand.id}`}>
+        <meta property="twitter:title" content={`Alcayato.com - Productos ${brand.name}`}>
+        <meta property="twitter:description" content={`Descubre los productos de ${brand.name} en Alcayato.com. ${brand.description}.`}>
+        <meta property="twitter:image" content={brandImageUrl}>
+      </Helmet>
       <Header />
 
       {/* Hero Section */}
