@@ -15,8 +15,8 @@ export default function Hero() {
     >
       {/* Background Animation */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#3C3473] rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#262626] rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#6C60BF] rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#94989c] rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Grid Pattern Overlay */}
@@ -38,7 +38,7 @@ export default function Hero() {
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-mont-heavy text-white mb-6 leading-tight">
             Conectamos el
-            <span className="block bg-gradient-to-r from-[#3C3473] to-[#6C60BF] bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-[#3C3473] to-[#6C60BF] bg-clip-text text-transparent pb-2">
               Futuro Digital
             </span>
           </h1>

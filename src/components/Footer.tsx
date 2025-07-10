@@ -135,7 +135,7 @@ export default function Footer() {
             <div className="text-gray-400 text-center md:text-right">
               <p>&copy; 2025 Alcayato. Todos los derechos reservados.</p>
               <p className="text-sm mt-1">
-                Diseñado con tecnología y precisión
+                Diseñado con tecnología, pasión y precisión por <a href="https://imagen-glocal.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">ImagenGlocal</a>
               </p>
             </div>
           </div>
